@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { getCoins } from "./redux/actions/coinActions";
 import Navbar from "./components/Navbar";
 import Coin from "./routes/Coin";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,15 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Coins />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <SearchBar />
+                <Coins />
+              </>
+            }
+          />
           <Route path="/coin" element={<Coin />}>
             <Route path=":coinId" element={<Coin />} />
           </Route>
