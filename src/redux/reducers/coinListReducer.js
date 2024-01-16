@@ -9,7 +9,7 @@ const coinListReducer = (state = initialState, action) => {
     case "GET_COINS":
       return {
         ...state,
-        coins: [...action.payload], // coins array is reset here
+        coins: [...state.coins, ...action.payload], // mevcut coin listesini yeni coinlerle birleştir
         isLoading: false,
         isError: false,
       };
