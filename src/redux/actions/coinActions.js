@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const getCoins =
-  (page = 1, searchTerm = "") =>
+  (searchTerm = "") =>
   (dispatch) => {
-    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}&sparkline=false&locale=en`;
+    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&sparkline=false&locale=en`;
     axios
       .get(url)
       .then((res) => {

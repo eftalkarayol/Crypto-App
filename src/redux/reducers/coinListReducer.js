@@ -9,14 +9,18 @@ const coinListReducer = (state = initialState, action) => {
     case "GET_COINS":
       return {
         ...state,
-        coins: [...state.coins, ...action.payload], // mevcut coin listesini yeni coinlerle birleştir
+        coins: action.payload, // Tüm coin verilerini güncelle
         isLoading: false,
         isError: false,
       };
     case "SET_SEARCH_TERM":
+      const searchTerm = action.payload.toLowerCase();
       return {
         ...state,
-        searchTerm: action.payload,
+        searchTerm: searchTerm,
+        coins: state.coins.filter((coin) =>
+          coin.name.toLowerCase().startsWith(searchTerm)
+        ), // Filtreleme işlemini burada gerçekleştir
       };
     case "SET_ERROR":
       return { ...state, isError: true, isLoading: false };
