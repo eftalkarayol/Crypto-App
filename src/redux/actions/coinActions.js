@@ -15,6 +15,10 @@ export const getCoins =
       .catch((err) => console.log(err));
   };
 
+export const loadMoreCoins = () => (dispatch) => {
+  dispatch({ type: "LOAD_MORE_COINS" });
+};
+
 export const getCoinDetails = (coinId) => (dispatch) => {
   const url = `https://api.coingecko.com/api/v3/coins/${coinId}`;
   axios
