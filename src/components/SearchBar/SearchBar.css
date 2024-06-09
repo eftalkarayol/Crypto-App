@@ -1,11 +1,23 @@
 .coin_search {
   margin-bottom: 64px;
   display: flex;
-  margin: auto;
   align-items: center;
-  width: 300px;
+  justify-content: center;
+  width: 100%;
 }
 
+.coin_search form {
+  display: flex;
+  align-items: center;
+}
+
+.coin_input {
+  margin-right: 8px; /* İki öğe arasına boşluk eklemek için */
+}
+
+.coin_search button {
+  padding: 10px;
+}
 .coin_input {
   background: white;
   color: black;
